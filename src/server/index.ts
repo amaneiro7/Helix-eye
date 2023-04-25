@@ -10,7 +10,7 @@ app.get('/galaxias', async (req: Request, res: Response) => {
     try {
         const {data} = await axios.get('https://images-api.nasa.gov/search?q=galaxies')
         const initialProps = {
-            galexies: data?.collection?.items
+            galaxies: data?.collection?.items
         }
 
         res.send(render(req.url, initialProps))

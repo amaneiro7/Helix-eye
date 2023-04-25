@@ -8,6 +8,7 @@ const container = document.getElementById('app')
 
 const initialProps = window.__INITIAL_PROPS__
 
+
 hydrateRoot(
   container,
   <BrowserRouter>
