@@ -4,10 +4,10 @@ import { StaticRouter } from 'react-router-dom/server';
 import { renderToString } from 'react-dom/server';
 import { template } from './template';
 
-export const render = (url: string) => {
+export const render = (url: string, initialProps={}) => {
     const stream = renderToString(
         <StaticRouter location={url}>
             <App />
         </StaticRouter>)
-    return template(stream)    
+    return template(stream, initialProps)
 }

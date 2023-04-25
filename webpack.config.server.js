@@ -7,12 +7,11 @@ dotenv.config()
 const mode = process.env.NODE_ENV ?? 'production'
 const isDev = process.env.NODE_ENV !== 'production'
 
-
 module.exports = {
   name: 'server',
   entry: './src/server/index.ts',
-  target: "node",
-  mode,  
+  target: 'node',
+  mode,
   stats: 'errors-only',
   output: {
     path: path.join(__dirname, '/dist'),
@@ -24,23 +23,23 @@ module.exports = {
       {
         test: /\.(tsx|ts)?$/,
         use: {
-          loader: "swc-loader",
+          loader: 'swc-loader',
           options: {
             jsc: {
               parser: {
-                syntax: "typescript",
+                syntax: 'typescript',
                 tsx: true,
-                minify: !isDev,
+                minify: !isDev
               }
             }
           }
         },
-        exclude: /node_modules/,
-      },
+        exclude: /node_modules/
+      }
     ]
-  }, 
+  },
   externals: [nodeExternals()],
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-  }  
-};
+    extensions: ['.tsx', '.ts', '.js']
+  }
+}
